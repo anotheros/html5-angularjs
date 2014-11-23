@@ -1,0 +1,6 @@
+<div class="row" infinite-scroll="loadOld()" infinite-scroll-distance='1'>
+    <div class="unread" data-ng-show="unread > 0" data-ng-click="load()">有{{ unread }}条未读的新内容</div>
+    <article class="flex-column flex-vertical-center col-md-12">
+        <card bindonce="item" data-ng-repeat="item in items" data-ng-show="item"></card>
+    </article>
+</div>

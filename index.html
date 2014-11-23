@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>Reader - 享受社会化阅读生活</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body data-ng-app="ReaderProjectApp">
+    <script>
+        console.log('%c  \n','line-height:130px;font-size:100px;background:url("http://snsreader.sinaapp.com/images/fu.jpg")')
+        console.log('%c本项目无偿招收:','color:blue')
+        console.log('1. 前端攻城狮苦力, 要求JavaScript, CSS3, HTML5, 最好有jQuery和AngularJS开发经验.')
+        console.log('2. REST架构师, 负责对项目API进行改造, 需要有较强沟通能力.')
+        console.log('年龄, 学历不限, 有较强忍耐力和自制力, 不殴打后端攻城狮等项目组成员者优先.')
+        console.log('%c有意向者请邮件联系woshenmedoubuzhidao#blackglory.me', 'color:green;')
+    </script>
+    <div id="bg"/></div>
+    <div data-ng-include="'template/nav.template'"></div>
+    <div id="main" class="container" data-ng-view></div>
+
+    <script src="scripts/lib/underscore.js"></script>
+    <script src="scripts/lib/jquery-2.0.3.js"></script>
+    <script src="scripts/lib/md5.js"></script>
+    <script src="scripts/lib/state-machine.js"></script>
+    <script src="scripts/lib/bootstrap.js"></script>
+    <script src="scripts/lib/fastclick.js">
+        $(function(){
+            FastClick.attach(document.body);
+        })
+    </script>
+    <script src="scripts/lib/angular-1.2.0/angular.js"></script>
+    <script src="scripts/lib/angular-1.2.0/angular-route.js"></script>
+    <script src="scripts/lib/angular-1.2.0/angular-resource.js"></script>
+    <script src="scripts/lib/angular-1.2.0/angular-sanitize.js"></script>
+    <script src="scripts/lib/angular-1.2.0/angular-cookies.js"></script>
+    <script src="scripts/lib/angular-1.2.0/angular-animate.js"></script>
+    <script src="scripts/lib/angular-1.2.0/i18n/angular-locale_zh-cn.js"></script>
+    <script src="scripts/lib/angular-directive/bindonce.js"></script>
+    <!--script src="scripts/lib/angular-direcitve/angular-contenteditable.js"></script-->
+    <script src="scripts/lib/angular-directive/ng-infinite-scroll.js"></script>
+    <script src="scripts/lib/angular-module/restangular.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/factory.js"></script>
+    <script src="scripts/filter.js"></script>
+    <script src="scripts/directive.js"></script>
+    <script src="scripts/ctrl/main.js"></script>
+    <script src="scripts/ctrl/setting.js"></script>
+    <script src="scripts/ctrl/sign.js"></script>
+    <script src="scripts/ctrl/newPost.js"></script>
+    <script src="scripts/ctrl/nav.js"></script>
+    <script src="scripts/ctrl/login.js"></script>
+    <script src="scripts/ctrl/like.js"></script>
+
+    <!-- development tools begin -->
+    <!-- script src="scripts/live.js"></script-->
+    <!-- development tools end -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="card-wider">
+    <div class="alert" data-ng-class="{'alert-success':alertType=='success','alert-info':alertType=='info','alert-warning':alertType=='warning','alert-danger':alertType=='danger'}" data-ng-show="alert">{{ alert }}</div>
+    <form ng-submit="(exist?editSummary:addSummary)()" role="form">
+        <div class="col-md-6">
+            <legend>新建文章</legend>
+            <div class="form-group">
+                <label for="url">URL地址</label>
+                <input id="pageUrl" autofocus required type="url" class="form-control" data-ng-model="item.url" data-ng-blur="urlChange()" data-rd-paste="urlChange()"/>
+                <span ng-show="exist">该内容已经被提交过, 如有必要, 可<a href="javascript:void(0)" ng-click="editable=true">点此对现有内容进行编辑</a></span>
+            </div>
+            <div class="form-group">
+                <label for="pageTitle">标题({{ item.title.length || '0' }}/50)</label>
+                <input data-ng-readonly="!editable"  id="pageTitle" maxlength="50" required type="text" class="form-control" data-ng-model="item.title"/>
+            </div>
+            <div class="form-group">
+                <label for="pageSummary">摘要({{ item.abstracts.length || '0' }}/500)</label>
+                <textarea data-ng-readonly="!editable" id="pageSummary" maxlength="500" required rows="5" class="form-control" data-ng-model="item.abstracts"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pageMediaUrl">媒体链接</label>
+                <input data-ng-readonly="!editable" id="pageMediaUrl" class="form-control" type="url" data-ng-model="item.media">
+            </div>
+            <div class="form-group">
+                <label for="pageTags">标签(使用,分隔开)</label>
+                <input data-ng-readonly="!editable" id="pageTags" class="form-control" type="text" data-ng-model="item.tagString">
+            </div>
+            <button type="submit" class="btn btn-primary">{{ exist?'修改':'提交'}}</button>
+        </div>
+        <div class="col-md-6">
+            <legend>预览</legend>
+            <card style="width:100%"></card>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>

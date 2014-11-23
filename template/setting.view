@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="alert" data-ng-class="{'alert-success':alertType=='success','alert-info':alertType=='info','alert-warning':alertType=='warning','alert-danger':alertType=='danger'}" data-ng-show="alert">{{ alert }}</div>
+    <form class="form-horizontal" data-ng-submit="setting()">
+        <!--
+        <div class="form-group">
+            <label for="password" class="col-md-4 control-label">原密码</label>
+            <div class="col-md-4">
+                <input id="password" required class="form-control" type="password" data-ng-model="user.password"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="newPassword" class="col-md-4 control-label">新密码</label>
+            <div class="col-md-4">
+                <input id="newPassword" required class="form-control" type="password" data-ng-model="user.newPassword"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="vaildNewPassword" class="col-md-4 control-label">再次输入</label>
+            <div class="col-md-4">
+                <input id="vaildNewPassword" required class="form-control" type="password" data-ng-model="user.vaildNewPassword"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-md-4 control-label">用户名</label>
+            <div class="col-md-4">
+                <input id="username" required class="form-control" type="text" data-ng-model="user.name"/>
+            </div>
+        </div>
+        -->
+        <div class="form-group">
+            <label for="backgroundImageUrl" class="col-md-3 control-label">背景图片</label>
+            <div class="col-md-8">
+                <input id="backgroundImageUrl" require class="form-control" type="url" data-ng-model="backgroundImageUrl"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+                <button type="submit" class="btn btn-primary">更新</button>
+            </div>
+        </div>
+    </form>
+</div>

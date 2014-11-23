@@ -1,0 +1,7 @@
+<div class="row">
+    <article class="col-md-10">
+        <section class="repeat-item" data-ng-animate="'list'" data-ng-repeat="item in items" data-id="{{ item.id }}">
+            <div data-ng-include="'views/post.html'"></div>
+        </section>
+    </article>
+</div>

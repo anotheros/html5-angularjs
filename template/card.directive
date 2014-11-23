@@ -1,0 +1,42 @@
+<section class="card repeat-item flex-3" data-test-ng-animate="'list'" data-id="{{ item.id }}">
+    <h3><img class="icon" data-ng-if="item.logo" ref="noreferer" height="16" width="16" data-ng-src="{{ item.logo }}"/><a data-md5="{{ item.summaryId }}" data-ng-href="{{ item.url }}" data-ng-mousedown="replaceUrl(this)" target="_blank">{{ item.title }}</a></h2>
+    <time datetime="{{ item.updateTime | date:'yyyy-MM-dd HH:mm:ss Z'}}" pubdate="pubdate">{{ item.updateTime | date:'medium'}}</time>
+    <ul  class="tags" data-ng-show="item.tag.length > 0">
+        <span class="glyphicon glyphicon-tags"></span>
+        <li data-ng-repeat="tag in item.tag | tag2Array"><a data-ng-class="{'followed':tag.followed}" data-ng-click="follow($event)" data-id="{{ tag.tagId }}">{{ tag.tagName }}</a></li>
+    </ul>   
+   <article class="flex-row">
+        <div data-ng-show="item.media" class="flex-2">
+            <img ref="noreferer" class="img-thumbnail" data-ng-src="{{ item.media }}">
+        </div>
+        <div data-ng-bind-html="item.abstracts"></div>
+    </article>
+	
+
+    <div data-ng-show="item.commentNumber || $root.user.logged" class="list-comment">
+        <div class="flex-row">
+            <a href="javascript:void(0)" data-ng-if="item.commentNumber" data-ng-click="getComment(this)">{{ item.commentInfo }}</a>
+            <aside data-ng-if="$root.user.logged" style="text-align:right;">
+                <button title="收藏" class="btn btn-default glyphicon" data-ng-class="{'glyphicon-floppy-saved':item.collection,'glyphicon-floppy-disk':!item.collection}" data-ng-click="collect(this)"></button>
+                <button title="喜欢" class="btn btn-default glyphicon" data-ng-class="{'glyphicon-star':item.liked,'glyphicon-star-empty':!item.liked}" data-ng-click="like(this)"></button>
+            </aside>
+        </div>
+        <ul class="media-list" data-ng-show="item.showComments">
+            <li class="media" data-ng-repeat="comment in item.comments | orderBy:'createTime'">
+                <a class="pull-left">
+                    <img class="media-object" alt="" width="32" height="32" data-ng-src="{{comment.user.id | avatar:32}}"/>
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ comment.user.userName }}</h4>
+                    <span data-ng-bind-html="comment.comment"></span>
+            </li>
+        </ul>
+        <form data-ng-if="$root.user.logged" data-ng-submit="addComment(this)" role="form">
+            <div class="from-group">
+                <div data-strip-br="true" contenteditable="true" data-ng-style="{'min-height': focus?'74px':'34px'}" class="form-control editor" data-ng-model="item.inputComment" data-ng-focus="focus=true" data-rd-before-paste="pasteHandler($event)" data-test-rd-contenteditable-input="safeInput(this)" placeholder="发表评论..."></div>
+            </div>
+            <button data-ng-show="focus" type="submit" class="btn btn-success">发布评论</button>
+            <button data-ng-show="focus" type="button" data-ng-click="item.inputComment='';focus=false" class="btn btn-default">取消</button>
+        </form>
+    </div>
+</section>

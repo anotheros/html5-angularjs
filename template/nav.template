@@ -1,0 +1,42 @@
+<header class="navbar navbar-default navbar-fixed-top" >
+    <nav class="container" role="navigation" data-ng-controller="NavCtrl">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Reader</a>
+        </div>
+        <div class="collapse navbar-collapse" id="collapse">
+            <ul class="nav navbar-nav">
+                <li data-ng-class="{'active':path==='/'}"><a href="/"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li data-ng-class="{'active':path==='/newPost'}" data-ng-if="user.logged"><a href="/newPost"><span class="glyphicon glyphicon-cloud-upload"></span> 提交文章</a></li>
+				
+                <li data-ng-if="false"><a href="/hot">今日热点</a></li>
+                <li data-ng-if="false"><a href="/like">猜你喜欢</a></li>
+            </ul>
+            <div class="navbar-right">
+                <form data-ng-if="false" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="找点什么..." />
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 搜索</button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li data-ng-if="!user.logged"><a href="/login" role="button">登录</a></li>
+                    <li data-ng-if="!user.logged"><a href="/sign" role="button">注册</a></li>
+					
+                    <li data-ng-if="user.logged" class="dropdown">
+                        <a href="#" data-toggle="dropdown">{{ user.name }}</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" href="/setting">设置</a></li>
+                            <li role="presentation"><a role="menuitem" href="#" data-ng-click="logout()">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="alert" data-ng-class="{'alert-success':alertType=='success','alert-info':alertType=='info','alert-warning':alertType=='warning','alert-danger':alertType=='danger'}" data-ng-show="alert">{{ alert }}</div>
+    <form data-ng-submit="login()" data-ng-hide="logged" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="email" class="col-md-4 control-label">Email</label>
+            <div class="col-md-6">
+                <input type="email" required data-ng-model="email" class="form-control" id="email" placeholder="你的电子邮箱"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-md-4 control-label">密码</label>
+            <div class="col-md-6">
+                <input type="password" required data-ng-model="password" class="form-control" id="password" placeholder="你的密码"/>
+            </div>
+        </div>
+        <!--
+        <div class="form-group">
+            <label for="verifyCode" class="col-md-4 control-label">验证码:</label>
+            <div class="col-md-2">
+                <input type="text" required id="verifyCode" class="form-control" maxlength="5" data-ng-model="verifyCode" />
+                <img data-ng-src="{{ getVerifyCode }}"/>
+            </div>
+        </div>
+        -->
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" data-ng-model="remember" /> 记住我
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+                <button type="submit" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </form>
+</div>
